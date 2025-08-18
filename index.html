@@ -11,23 +11,23 @@
   }
   body {
     margin: 0;
-    background: #000;
+    background: #0b1c2f; /* biru gelap elegan */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #eee;
+    color: #e0eaff;
     min-height: 100vh;
     padding: 20px;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Teks utama putih dengan glow halus */
+  /* Teks utama biru dengan glow halus */
   h1 {
     text-align: center;
     font-size: 3rem;
     margin-bottom: 50px;
-    color: #fff;
+    color: #d0e7ff;
     text-shadow:
-      0 0 8px rgba(255, 255, 255, 0.8),
-      0 0 15px rgba(138, 43, 226, 0.7); /* purple glow */
+      0 0 8px rgba(208, 231, 255, 0.8),
+      0 0 15px rgba(0, 123, 255, 0.7);
     font-weight: 800;
     letter-spacing: 1.5px;
     user-select: none;
@@ -42,12 +42,12 @@
   }
 
   .product-card {
-    background: #111;
-    border: 2px solid #8e44ad;
+    background: #0f2a4b;
+    border: 2px solid #1e90ff;
     border-radius: 14px;
     box-shadow:
-      0 0 12px #9b59b6,
-      inset 0 0 12px #8e44ad;
+      0 0 12px #1e90ff,
+      inset 0 0 12px #0f4c8c;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -56,16 +56,16 @@
   .product-card:hover {
     transform: translateY(-8px);
     box-shadow:
-      0 0 24px #bb33ff,
-      inset 0 0 18px #a24dff;
+      0 0 24px #3399ff,
+      inset 0 0 18px #1e90ff;
   }
 
   .product-image {
     width: 100%;
-    aspect-ratio: 1 / 1; /* persegi */
+    aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-bottom: 2px solid #8e44ad;
-    filter: drop-shadow(0 0 8px #9b59b6);
+    border-bottom: 2px solid #1e90ff;
+    filter: drop-shadow(0 0 8px #3399ff);
   }
 
   .product-content {
@@ -78,15 +78,15 @@
   .product-name {
     font-size: 1.3rem;
     font-weight: 900;
-    color: #d8b3ff;
+    color: #a0d4ff;
     margin-bottom: 8px;
-    text-shadow: 0 0 8px #bb33ff;
+    text-shadow: 0 0 8px #66b3ff;
   }
 
   .product-price {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #fff;
+    color: #e0eaff;
     margin-bottom: 14px;
   }
 
@@ -94,7 +94,7 @@
     flex-grow: 1;
     font-size: 1rem;
     line-height: 1.45;
-    color: #ccc;
+    color: #c0dfff;
     margin-bottom: 22px;
     letter-spacing: 0.02em;
   }
@@ -114,39 +114,41 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    color: #fff;
-    background: linear-gradient(135deg, #9b59b6, #bb33ff);
+    color: #0b1c2f; /* teks biru gelap di tombol putih */
+    background: linear-gradient(135deg, #ffffff, #d4d4d4);
     box-shadow:
-      0 0 9px #bb33ff,
-      0 5px 8px rgba(187, 51, 255, 0.6);
+      0 0 6px #ffffffaa,
+      0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
     text-decoration: none;
     user-select: none;
     transition: background 0.35s ease, box-shadow 0.35s ease;
   }
   .btn:hover {
-    background: linear-gradient(135deg, #bb33ff, #9b59b6);
+    background: linear-gradient(135deg, #f0f0f0, #bfbfbf);
     box-shadow:
-      0 0 16px #dd66ff,
-      0 7px 14px rgba(221, 102, 255, 0.8);
+      0 0 12px #ffffffcc,
+      0 6px 10px rgba(0, 0, 0, 0.25);
   }
 
   .btn-telegram {
-    background: #0088cc;
-    box-shadow: 0 0 12px #0088cc;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    color: #0b1c2f;
+    box-shadow: 0 0 6px #ffffffaa, 0 4px 6px rgba(0,0,0,0.2);
   }
   .btn-telegram:hover {
-    background: #00aaff;
-    box-shadow: 0 0 18px #00ccff;
+    background: linear-gradient(135deg, #f0f0f0, #cfcfcf);
+    box-shadow: 0 0 12px #ffffffcc, 0 6px 10px rgba(0,0,0,0.25);
   }
 
   .btn-channel {
-    background: #6a0dad;
-    box-shadow: 0 0 12px #9b30ff;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    color: #0b1c2f;
+    box-shadow: 0 0 6px #ffffffaa, 0 4px 6px rgba(0,0,0,0.2);
   }
   .btn-channel:hover {
-    background: #7f3fff;
-    box-shadow: 0 0 18px #bb33ff;
+    background: linear-gradient(135deg, #f0f0f0, #cfcfcf);
+    box-shadow: 0 0 12px #ffffffcc, 0 6px 10px rgba(0,0,0,0.25);
   }
 
   @media (max-width: 440px) {
@@ -187,6 +189,33 @@
       </div>
     </div>
   </div>
+  <div class="product-card">
+    <img class="product-image" src="https://files.catbox.moe/68nl0v.png" alt="Script The End V12" />
+    <div class="product-content">
+      <div class="product-name">SCRIPT THE END V12<br />(PRE ORDER)</div>
+      <div class="product-price">Rp10.000<br /><br />
+      Keuntungan Dan Efek Bug</div>
+      <div class="product-benefits">
+        • Delay Maker Hard<br />
+        • Blank iPhone<br />
+        • Delay Invisible
+        • Blank Grup<br />
+        • Fitur-fitur Rame <br />
+        • Crash Grup<br />
+        • Freeze Grup<br />
+        • Blank Andro<br />
+        • Stuk Logo<br />
+        • Crash Andro<br />
+        • Free Tutorial Pemasangan <br />
+        • Freeze Home
+      </div>
+      <div class="buttons">
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Script%20The%20EndV12" target="_blank" rel="noopener noreferrer">Order Via WA</a>
+        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
+        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
+      </div>
+    </div>
+  </div>
  <div class="product-card">
     <img class="product-image" src="https://files.catbox.moe/4xlun9.jpg" alt="Script The End V12" />
     <div class="product-content">
@@ -208,84 +237,17 @@
       </div>
     </div>
   </div>
-    <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/bfvjt1.jpg" alt="Panel Pteroadctyl" />
-    <div class="product-content">
-      <div class="product-name">WEBSITE THE END V13</div>
-      <div class="product-price">SLOT HABIS!!!<br /><br />
-      Keuntungan</div>
-      <div class="product-benefits">
-• Bug Melalui Website/Apk<br />
-• Pairing Kode Lewat Website/Apk<br />
-• Anti Ribet<br />
-• Anti Panel<br />
-• Crash iPhone<br />
-• Delay Maker<br />
-• Sedot Kouta<br />
-• Crash Andro<br />
-• Blank iOS<br />
-• Blank Andro
-</div>
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Website%20The%20End%20V13" target="_blank" rel="noopener noreferrer">Order Via WA</a>
-        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
-        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
-      </div>
-    </div>
-  </div>
-   <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/99ictx.jpg" alt="Script The End V12" />
-    <div class="product-content">
-      <div class="product-name">JASA BUG PERNOMER<br />
-      (CLOSE)</div>
-      <div class="product-price">Rp3.000<br /><br />
-      Keuntungan</div>
-      <div class="product-benefits">
-        • Target Auto C1<br />
-        • Bug Tipe Spam<br />
-        • Privasi Terjaga<br />
-        • Target Auto Crash/Delay
-      </div>      
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Jasa%20Bug" target="_blank" rel="noopener noreferrer">Order Via WA</a>
-        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
-        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
-      </div>
-    </div>
-  </div>
-  <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/69kuyo.jpg" alt="Script The End V12" />
-    <div class="product-content">
-      <div class="product-name">SCRIPT THE END V12<br />(SEDANG UPDATE)</div>
-      <div class="product-price">Rp15.000<br /><br />
-      Efek Bug V12</div>
-      <div class="product-benefits">
-        • Delay Maker Hard<br />
-        • Blank Click<br />
-        • Stuk Logo<br />
-        • Crash Andro<br />
-        • Freeze Home
-      </div>
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Script%20The%20EndV12" target="_blank" rel="noopener noreferrer">Order Via WA</a>
-        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
-        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
-      </div>
-    </div>
-  </div>
-
   <div class="product-card">
     <img class="product-image" src="https://files.catbox.moe/43451k.jpg" alt="Panel Pteroadctyl" />
     <div class="product-content">
       <div class="product-name">PANEL PTEROADCTYL</div>
-      <div class="product-price">Ram 4GB – Rp2.000<br />
-     Ram 5GB – Rp3.000<br />
-     Ram 6GB – Rp4.000<br />
-     Ram 7GB – Rp5.000<br />
-     Ram 8GB – Rp6.000<br />
-     Ram 9GB – Rp7.000<br />
-     Ram 10GB – Rp8.000<br />
-     Ram Unlimited – Rp10.000<br /><br />
+      <div class="product-price">Ram 4GB – Rp4.000<br />
+     Ram 5GB — Rp5.000<br />
+     Ram 6GB — Rp6.000<br />
+     Ram 7GB — Rp7.000<br />
+     Ram 8GB — Rp8.000<br />
+     Ram 9GB — Rp9.000<br />
+     Ram Unlimited — Rp10.000<br /><br />
       Keunggulan</div>
       <div class="product-benefits">
         • Panel Anti Lag Dan Delay<br />
@@ -293,6 +255,8 @@
         • Admin Panel Hanya Saya<br />
         • Node 15 Sampai 23<br />
         • Server Ngebut<br />
+        • Bot On 24 Jam<br />
+        • Panel Fast Res<br />
         • Garansi 15 Hari <br />
         • Masa Aktif 30 Hari <br />
         • Private Server
@@ -305,27 +269,26 @@
     </div>
   </div>
   <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/unp5a1.png" alt="Panel Pteroadctyl" />
+    <img class="product-image" src="https://files.catbox.moe/43451k.jpg" alt="Panel Pteroadctyl" />
     <div class="product-content">
-      <div class="product-name">APK BUG THE END INVICTUS <br /> (SEDANG UPDATE)</div>
-      <div class="product-price">Akses 1Minggu – Rp20.000<br />
- Akses 3Minggu – Rp40.000<br />
- Akses 1Bulan – Rp50.000<br />
- Akses Perma – Rp100.000<br /><br />
-      Keuntungan</div>
+      <div class="product-name">RESELLER PANEL PRIVATE</div>
+      <div class="product-price">Rp15.000 — Pt-pt Kalo Vps Mokad <br />
+      Rp25.000 — No Pt-pt<br /><br />
+      Keunggulan</div>
       <div class="product-benefits">
-• Bebas Bug Sepuasnya<br />
-• Free Request Username & Password<br />
-• Bug Tanpa Jeda<br />
-• Bisa Spam Bug <br />
-• Efek Bug Forclose & Delay Invisible<br />
-• Bisa Bug Group<br />
-• Cara Make Gampang<br />
-• Login -> Masukin No Target -> Pilih Tipe Bug -> Done <br />
-• Tampilan Apk Kece
+• Bisa Buat Panel Sendiri<br />
+• Bisa Jualan Panel<br />
+• Bisa Open Sewa Bot Bug, Md, Push Kontak<br />
+• Masuk Gb Reseller Panel<br />
+• Anti Rusuh<br />
+• Setiap Server Penuh Di Hapus<br />
+• Anti Delete-delete Server <br />
+• Anti Curi Script <br />
+• Server Terjaga <br />
+• Admin Panel Hanya Saya
 </div>
       <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Apk%20The%20End%20Invictus" target="_blank" rel="noopener noreferrer">Order Via WA</a>
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Reseller%20Panel" target="_blank" rel="noopener noreferrer">Order Via WA</a>
         <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
         <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
       </div>
@@ -336,11 +299,11 @@
     <div class="product-content">
       <div class="product-name">VPS (VIRTUAL PRIVATE SERVER)</div>
       <div class="product-price">1GB Core1 – Rp20.000<br />
-2GB Core1 – Rp25.000<br />
-2GB Core2 – Rp30.000<br />
-4GB Core2 – Rp40.000<br />
-8GB Core4 – Rp55.00 <br />
-16GB Core4 – Rp75.000<br /><br />
+2GB Core1 — Rp25.000<br />
+2GB Core2 — Rp30.000<br />
+4GB Core2 — Rp40.000<br />
+8GB Core4 — Rp55.000<br />
+16GB Core4 — Rp75.000<br /><br />
       Keuntungan</div>
       <div class="product-benefits">
 • Free Req Nama Domain Free<br />
@@ -417,32 +380,6 @@
       </div>
     </div>
   </div>
-  <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/43451k.jpg" alt="Panel Pteroadctyl" />
-    <div class="product-content">
-      <div class="product-name">RESELLER PANEL PRIVATE</div>
-      <div class="product-price">Rp10.000 – Pt-pt Kalo Vps Mokad <br />
-      Rp15.000 – No Pt-pt<br /><br />
-      Keunggulan</div>
-      <div class="product-benefits">
-• Bisa Buat Panel Sendiri<br />
-• Bisa Jualan Panel<br />
-• Bisa Open Sewa Bot Bug, Md, Push Kontak<br />
-• Masuk Gb Reseller Panel<br />
-• Anti Rusuh<br />
-• Setiap Server Penuh Di Hapus<br />
-• Anti Delete-delete Server <br />
-• Anti Curi Script <br />
-• Server Terjaga <br />
-• Admin Panel Hanya Saya
-</div>
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Reseller%20Panel" target="_blank" rel="noopener noreferrer">Order Via WA</a>
-        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
-        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
-      </div>
-    </div>
-  </div>
     <div class="product-card">
     <img class="product-image" src="https://files.catbox.moe/1526hx.jpg" alt="Panel Pteroadctyl" />
     <div class="product-content">
@@ -460,23 +397,72 @@
       </div>
     </div>
   </div>
-  <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/s693t0.jpg" alt="Panel Pteroadctyl" />
+    <div class="product-card">
+    <img class="product-image" src="https://files.catbox.moe/unp5a1.png" alt="Panel Pteroadctyl" />
     <div class="product-content">
-      <div class="product-name">WEBSITE EDUKASI</div>
-      <div class="product-price">Rp20.000<br /><br />
-      Keunggulan</div>
+      <div class="product-name">APK BUG THE END INVICTUS <br /> (SEDANG UPDATE)</div>
+      <div class="product-price">
+ Akses 3Minggu — Rp40.000<br />
+ Akses 1Bulan — Rp50.000<br />
+ Akses Perma — Rp100.000<br /><br />
+      Keuntungan</div>
       <div class="product-benefits">
-• Materi Tentang Pembuatan Script<br />
-• Cara Buat Function Bug<br />
-• Cara Buat Website Bug<br />
-• Cara Connectin Website Bug Agar Online<br />
-• Cara Buat Script Bot WhatsApp Atau Telegram<br />
-• Tutor Menggunakan Video Dan Penjelasan<br />
-• Tutor Video Dari Awal Sampai Akhir
+• Bebas Bug Sepuasnya<br />
+• Free Request Username & Password<br />
+• Bug Tanpa Jeda<br />
+• Bisa Spam Bug <br />
+• Efek Bug Forclose & Delay Invisible<br />
+• Bisa Bug Group<br />
+• Cara Make Gampang<br />
+• Login -> Masukin No Target -> Pilih Tipe Bug -> Done <br />
+• Tampilan Apk Kece
 </div>
       <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Website%20Edukasi" target="_blank" rel="noopener noreferrer">Order Via WA</a>
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Apk%20The%20End%20Invictus" target="_blank" rel="noopener noreferrer">Order Via WA</a>
+        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
+        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
+      </div>
+    </div>
+  </div>
+      <div class="product-card">
+    <img class="product-image" src="https://files.catbox.moe/bfvjt1.jpg" alt="Panel Pteroadctyl" />
+    <div class="product-content">
+      <div class="product-name">WEBSITE THE END V13</div>
+      <div class="product-price">SLOT HABIS!!<br /><br />
+      Keuntungan</div>
+      <div class="product-benefits">
+• Bug Melalui Website/Apk<br />
+• Pairing Kode Lewat Website/Apk<br />
+• Anti Ribet<br />
+• Anti Panel<br />
+• Crash iPhone<br />
+• Delay Maker<br />
+• Crash Andro<br />
+• Blank iOS<br />
+• Blank Andro
+</div>
+      <div class="buttons">
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Website%20The%20End%20V13" target="_blank" rel="noopener noreferrer">Order Via WA</a>
+        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
+        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
+      </div>
+    </div>
+  </div>
+     <div class="product-card">
+    <img class="product-image" src="https://files.catbox.moe/99ictx.jpg" alt="Script The End V12" />
+    <div class="product-content">
+      <div class="product-name">JASA BUG PERNOMER<br />
+      (CLOSE)</div>
+      <div class="product-price">Rp3.000<br /><br />
+      Keuntungan</div>
+      <div class="product-benefits">
+        • Target Auto C1<br />
+        • Bug Tipe Spam<br />
+        • Privasi Terjaga<br />
+        • Target Auto Crash/Delay
+      </div>      
+      <div class="buttons">
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Jasa%20Bug" target="_blank" rel="noopener noreferrer">Order Via WA</a>
         <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
         <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
       </div>
@@ -484,4 +470,4 @@
   </div>
 </div>
 </body>
-          </html>
+  </html>
