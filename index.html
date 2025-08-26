@@ -3,102 +3,94 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>🩸㆞ㆮ라I'mZaOfficial🔥</title>
+<title>ZalOfficial - Produk</title>
 <style>
   /* Reset & font */
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    margin: 0;
-    background: #0b1c2f; /* biru gelap elegan */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #e0eaff;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #0a1a2f, #07101f, #000000); /* biru navy → hitam */
+    color: #e6f0ff;
     min-height: 100vh;
-    padding: 20px;
-    -webkit-font-smoothing: antialiased;
+    padding: 30px 20px;
   }
 
-  /* Teks utama biru dengan glow halus */
+  /* Judul */
   h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.6rem;
     margin-bottom: 50px;
-    color: #d0e7ff;
-    text-shadow:
-      0 0 8px rgba(208, 231, 255, 0.8),
-      0 0 15px rgba(0, 123, 255, 0.7);
     font-weight: 800;
-    letter-spacing: 1.5px;
-    user-select: none;
+    color: #dce7ff;
+    text-shadow: 0 0 10px rgba(20,60,120,0.4);
+    letter-spacing: 1px;
   }
 
+  /* Grid Produk */
   .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
+  /* Card Produk */
   .product-card {
-    background: #0f2a4b;
-    border: 2px solid #1e90ff;
-    border-radius: 14px;
-    box-shadow:
-      0 0 12px #1e90ff,
-      inset 0 0 12px #0f4c8c;
+    background: linear-gradient(160deg, #0d2038, #050a12);
+    border-radius: 16px;
+    border: 1px solid rgba(40,100,200,0.4);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.6);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.25s ease, box-shadow 0.3s ease;
   }
   .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow:
-      0 0 24px #3399ff,
-      inset 0 0 18px #1e90ff;
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.7);
+    border-color: rgba(80,160,255,0.6);
   }
 
+  /* Gambar Produk */
   .product-image {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-bottom: 2px solid #1e90ff;
-    filter: drop-shadow(0 0 8px #3399ff);
+    border-bottom: 1px solid rgba(80,160,255,0.4);
   }
 
+  /* Konten Produk */
   .product-content {
-    padding: 18px 22px;
+    padding: 22px 24px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
   }
 
   .product-name {
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: #a0d4ff;
-    margin-bottom: 8px;
-    text-shadow: 0 0 8px #66b3ff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a5c8ff;
+    margin-bottom: 10px;
   }
 
   .product-price {
     font-size: 1.15rem;
-    font-weight: 700;
-    color: #e0eaff;
+    font-weight: 600;
+    color: #dce7ff;
     margin-bottom: 14px;
   }
 
   .product-benefits {
     flex-grow: 1;
-    font-size: 1rem;
-    line-height: 1.45;
-    color: #c0dfff;
-    margin-bottom: 22px;
-    letter-spacing: 0.02em;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #c2d6ff;
+    margin-bottom: 20px;
   }
 
+  /* Tombol */
   .buttons {
     display: flex;
     gap: 12px;
@@ -109,56 +101,26 @@
   .btn {
     flex: 1 1 30%;
     padding: 12px 0;
-    font-weight: 700;
-    font-size: 1.05rem;
+    font-weight: 600;
+    font-size: 1rem;
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    color: #0b1c2f; /* teks biru gelap di tombol putih */
-    background: linear-gradient(135deg, #ffffff, #d4d4d4);
-    box-shadow:
-      0 0 6px #ffffffaa,
-      0 4px 6px rgba(0, 0, 0, 0.2);
     text-align: center;
     text-decoration: none;
-    user-select: none;
-    transition: background 0.35s ease, box-shadow 0.35s ease;
+    color: #ffffff;
+    background: linear-gradient(180deg, #0f4c81, #0a2f55); /* biru premium */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
   }
   .btn:hover {
-    background: linear-gradient(135deg, #f0f0f0, #bfbfbf);
-    box-shadow:
-      0 0 12px #ffffffcc,
-      0 6px 10px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(180deg, #1967b3, #0f4c81);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
   }
 
-  .btn-telegram {
-    background: linear-gradient(135deg, #ffffff, #e0e0e0);
-    color: #0b1c2f;
-    box-shadow: 0 0 6px #ffffffaa, 0 4px 6px rgba(0,0,0,0.2);
-  }
-  .btn-telegram:hover {
-    background: linear-gradient(135deg, #f0f0f0, #cfcfcf);
-    box-shadow: 0 0 12px #ffffffcc, 0 6px 10px rgba(0,0,0,0.25);
-  }
-
-  .btn-channel {
-    background: linear-gradient(135deg, #ffffff, #e0e0e0);
-    color: #0b1c2f;
-    box-shadow: 0 0 6px #ffffffaa, 0 4px 6px rgba(0,0,0,0.2);
-  }
-  .btn-channel:hover {
-    background: linear-gradient(135deg, #f0f0f0, #cfcfcf);
-    box-shadow: 0 0 12px #ffffffcc, 0 6px 10px rgba(0,0,0,0.25);
-  }
-
-  @media (max-width: 440px) {
-    .product-image {
-      height: auto;
-      aspect-ratio: 1 / 1;
-    }
-    .btn {
-      flex: 1 1 100%;
-    }
+  @media (max-width: 480px) {
+    .btn { flex: 1 1 100%; }
   }
 </style>
 </head>
@@ -169,19 +131,35 @@
   <div class="product-card">
     <img class="product-image" src="https://files.catbox.moe/918cst.jpg" alt="Script The End V12" />
     <div class="product-content">
-      <div class="product-name">WEBSITE AME NO HABAKIRI</div>
-      <div class="product-price">Rp10.000<br /><br />
-      Efek Bug</div>
+      <div class="product-name">WEBSITE AME NO HABAKIRI<br>-2 Slot!</div>
+      <div class="product-price">Rp10.000<br><br>Efek Bug</div>
       <div class="product-benefits">
-        • Blank iPhone<br />
-        • Blank Delay<br />
-        • Delay Hard<br />
-        • Blank Grup<br />
-        • Blank Andro<br />
-        • Free Tutorial Pemasangan <br />
+        • Blank iPhone<br>
+        • Blank Delay<br>
+        • Delay Invisible<br>
+        • Blank Andro<br>
+        • Free Tutorial Pemasangan<br>
       </div>
       <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Website%20Ame%20No%20Habakiri" target="_blank" rel="noopener noreferrer">Order Via WhatsApp</a>
+        <a class="btn" href="https://wa.me/6289524134626" target="_blank">Order WhatsApp</a>
+        <a class="btn" href="https://t.me/ZalBaikSekaliii" target="_blank">Order Telegram</a>
+        <a class="btn" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank">Link Saluran</a>
+      </div>
+    </div>
+  </div>
+  <div class="product-card">
+    <img class="product-image" src="https://i.top4top.io/p_3524r52uq0.jpg" alt="Script The End V12" />
+    <div class="product-content">
+      <div class="product-name">JASA UNBANNED<br /></div>
+      <div class="product-price">Rp20.000<br /><br />
+      Keuntungan</div>
+      <div class="product-benefits">
+        • Buka Kenon Manen/Hard<br />
+        • Pengerjaan Cepat (Kalo Ga Antri :v)<br />
+        • Nomer Auto Pulih
+      </div>
+      <div class="buttons">
+        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Jasa%20Unbanned" target="_blank" rel="noopener noreferrer">Order Via WhatsApp</a>
         <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
         <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
       </div>
@@ -190,17 +168,14 @@
   <div class="product-card">
     <img class="product-image" src="https://files.catbox.moe/68nl0v.png" alt="Script The End V12" />
     <div class="product-content">
-      <div class="product-name">SCRIPT THE END V12<br />(PRE ORDER)</div>
+      <div class="product-name">SCRIPT THE END V12<br /></div>
       <div class="product-price">Rp10.000<br /><br />
       Keuntungan Dan Efek Bug</div>
       <div class="product-benefits">
         • Delay Maker Hard<br />
         • Blank iPhone<br />
         • Delay Invisible<br />
-        • Blank Grup<br />
         • Fitur-fitur Rame <br />
-        • Crash Grup<br />
-        • Freeze Grup<br />
         • Blank Andro<br />
         • Stuk Logo<br />
         • Crash Andro<br />
@@ -218,15 +193,15 @@
     <img class="product-image" src="https://files.catbox.moe/4xlun9.jpg" alt="Script The End V12" />
     <div class="product-content">
       <div class="product-name">JASA PEMBUATAN WEBSITE BUG</div>
-      <div class="product-price">Rp45.000<br /><br />
+      <div class="product-price">Rp50.000<br /><br />
       Keuntungan</div>
       <div class="product-benefits">
         • Terima Jadi<br />
         • Bebas Request<br />
         • Tampilan Kece<br />
         • Tinggal Bug' Doang<br />
-        • Request Pairing <br />
-        • System Web/Apk Bisa Request
+        • Free Jadiin Website Jadi Apk<br />
+        • Request Pairing
       </div>      
       <div class="buttons">
         <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Jasa%20Pembuatan%20Website/Apk%20Bug" target="_blank" rel="noopener noreferrer">Order Via WhatsApp</a>
@@ -261,32 +236,6 @@
 </div>
       <div class="buttons">
         <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20order%20Script%20The%20EndV12" target="_blank" rel="noopener noreferrer">Order Via WhatsApp</a>
-        <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
-        <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
-      </div>
-    </div>
-  </div>
-  <div class="product-card">
-    <img class="product-image" src="https://files.catbox.moe/43451k.jpg" alt="Panel Pteroadctyl" />
-    <div class="product-content">
-      <div class="product-name">RESELLER PANEL PRIVATE</div>
-      <div class="product-price">Rp15.000 — Pt-pt Kalo Vps Mokad <br />
-      Rp25.000 — No Pt-pt<br /><br />
-      Keunggulan</div>
-      <div class="product-benefits">
-• Bisa Buat Panel Sendiri<br />
-• Bisa Jualan Panel<br />
-• Bisa Open Sewa Bot Bug, Md, Push Kontak<br />
-• Masuk Gb Reseller Panel<br />
-• Anti Rusuh<br />
-• Setiap Server Penuh Di Hapus<br />
-• Anti Delete-delete Server <br />
-• Anti Curi Script <br />
-• Server Terjaga <br />
-• Admin Panel Hanya Saya
-</div>
-      <div class="buttons">
-        <a class="btn" href="https://wa.me/6289524134626?text=Halo%20Admin%20Ganteng,%20Saya%20Ingin%20Order%20Reseller%20Panel" target="_blank" rel="noopener noreferrer">Order Via WhatsApp</a>
         <a class="btn btn-telegram" href="https://t.me/ZalBaikSekaliii" target="_blank" rel="noopener noreferrer">Order Via Telegram</a>
         <a class="btn btn-channel" href="https://whatsapp.com/channel/0029VbA7iUI1Hsq1P7VS2S3D" target="_blank" rel="noopener noreferrer">Link Saluran</a>
       </div>
@@ -346,7 +295,7 @@
 • Bisa Jual Script VIP <br />
 • Bisa Open PO Sendiri <br />
 • Masuk GB Reseller <br />
-• Free Update Permanen<br />
+• Free Update Script Permanen<br />
 • Diutamakan Saat Update
 </div>
       <div class="buttons">
@@ -397,4 +346,4 @@
   </div>
 </div>
 </body>
-  </html>
+        </html>
