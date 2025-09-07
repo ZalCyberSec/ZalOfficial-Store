@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Produk & Payment — ZalOfficial 🛍</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    :root{--glass:rgba(255,255,255,.08);}
+    body{font-family:Poppins,system-ui,sans-serif;color:#fff;margin:0;min-height:100vh;overflow-x:hidden;}
+    .video-bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-2;}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:-1;}
+    .title{font-family:Orbitron, Poppins, sans-serif;}
+    .glass{background:var(--glass);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);box-shadow:0 10px 30px rgba(0,0,0,.35);}
+    .btn{border-radius:14px;padding:.65rem 1rem;font-weight:600}
+    .btn-primary{background:linear-gradient(135deg,#1d4ed8,#2563eb,#38bdf8);box-shadow:0 8px 24px rgba(37,99,235,.4);}
+    .btn-primary:hover{filter:brightness(1.1)}
+    .marquee{width:100%;overflow:hidden;white-space:nowrap;box-sizing:border-box;}
+    .marquee span{display:inline-block;padding-left:100%;animation:marquee 18s linear infinite;
+      font-size:1.1rem;font-weight:600;
+      background:linear-gradient(to right,#38bdf8,#fff,#38bdf8);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    @keyframes marquee{0%{transform:translate(0,0);}100%{transform:translate(-100%,0);}}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:50;padding:1rem;}
+    .modal.show{display:flex;}
+    .modal-panel{max-height:90vh;overflow-y:auto;animation:scaleIn .25s ease;}
+    @keyframes scaleIn{from{transform:scale(0.95);opacity:0;}to{transform:scale(1);opacity:1;}}
+    .toast{position:fixed;bottom:2rem;right:2rem;background:rgba(20,30,60,0.95);padding:.75rem 1rem;border-radius:.75rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:60;}
+    .toast.show{opacity:1;pointer-events:auto;}
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="https://files.catbox.moe/gcouxh.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Audio -->
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/p0zmgo.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- ===== Welcome Page ===== -->
+  <section id="welcome" class="flex flex-col items-center justify-center text-center min-h-screen px-6">
+    <h1 class="title text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-cyan-200 to-white">
+      ZalOfficial Produk
+    </h1>
+    <div class="marquee mb-8">
+      <span>Halo Kak, Selamat Datang Di Website Produk & Payment ZalOfficial, Mau Cari Apa? Apk Bug? Website Bug? Panel? Script Bug? Jasa Buat Apk Bug? Apa Ada Yang Lain? Silahkan Klik Tombol Di Bawah Ya Kak😉</span>
+    </div>
+    <button id="cekProdukBtn" class="btn btn-primary text-lg">Cek Produk</button>
+  </section>
+
+  <!-- ===== Produk Page (hidden dulu) ===== -->
+  <div id="produkPage" style="display:none">
+    <header class="px-6 pt-10 pb-6 text-center">
+      <h1 class="title text-4xl md:text-5xl font-bold">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-cyan-200 to-white drop-shadow">ZalOfficial Produk</span>
+      </h1>
+      <p class="text-slate-300 mt-3">Beli Kebutuhan Hosting Kamu Di ZalOfficial</p>
+    </header>
+
+    <main class="px-6 pb-14 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Produk 1 -->
+      <article class="card glass rounded-2xl p-6">
+      <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+        <img src="https://files.catbox.moe/fgp4rp.png" alt="Panel"
+     class="w-full object-cover aspect-square rounded-xl">
+               <span class="absolute top-3 left-3 text-xs bg-sky-500/30 text-sky-100 px-2 py-1 rounded-full badge">Terbaru</span>        
+      </div>
+      <h3 class="text-xl font-semibold mb-1">Buyer Vip Website Bug</h3>
+      <p class="text-slate-300 text-sm mb-4">Mendapatkan Semua Project Website Bug Saya</p>
+      <div class="flex items-center justify-between mb-5">
+        <span class="text-lg font-bold tracking-wide">
+     Rp 45.000</span>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary w-full ring-acc flex items-center justify-center gap-2" onclick="openPaymentOption('Produk Premium 3', 75000)">
+          <i class="fa-solid fa-cart-shopping"></i> Order
+        </button>
+        <button class="btn btn-secondary w-full flex items-center justify-center gap-2" onclick="openDetail('Website')">
+          <i class="fa-solid fa-circle-info"></i> Keunggulan
+        </button>
+      </div>
+    </article>
+    <article class="card glass rounded-2xl p-6">
+      <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+        <img src="https://files.catbox.moe/ekrewj.jpg" alt="Panel"
+     class="w-full object-cover aspect-square rounded-xl">
+        <span class="absolute top-3 left-3 text-xs bg-emerald-500/30 text-emerald-100 px-2 py-1 rounded-full badge">Pre Order</span>
+      </div>
+      <h3 class="text-xl font-semibold mb-1">The End V14.0.0</h3>
+      <p class="text-slate-300 text-sm mb-4">Script Bug WhatsApp Dengan Efek Gacor Dan Fitur-fitur Banyak</p>
+      <div class="flex items-center justify-between mb-5">
+        <span class="text-lg font-bold tracking-wide">
+      Rp 10.000</span>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary w-full ring-acc flex items-center justify-center gap-2" onclick="openPaymentOption('Produk Premium 3', 75000)">
+          <i class="fa-solid fa-cart-shopping"></i> Order
+        </button>
+        <button class="btn btn-secondary w-full flex items-center justify-center gap-2" onclick="openDetail('V14')">
+          <i class="fa-solid fa-circle-info"></i> Keunggulan
+        </button>
+      </div>
+    </article>
+    
+      <article class="card glass rounded-2xl p-6">
+        <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+          <img src="https://files.catbox.moe/rvc5z8.jpg" alt="Produk 1"
+            class="w-full object-cover aspect-square rounded-xl">
+
+        </div>
+        <h3 class="text-xl font-semibold mb-1">The End Revolution</h3>
+        <p class="text-slate-300 text-sm mb-4">Apk/Website Bug WhatsApp Dengan Tampilan Kece, Harga Murah, Tipe Bug Banyak, Bisa Bug Group Dan Efek Bug Brutal.</p>
+        <div class="flex items-center justify-between mb-5">
+          <span class="text-lg font-bold tracking-wide">Aplikasi • Rp 15.000<br> Website • Rp 10.000</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary w-full flex items-center justify-center gap-2" onclick="openPaymentOption('The End Revolution', 15000)">
+            <i class="fa-solid fa-cart-shopping"></i> Order
+          </button>
+          <button class="btn glass w-full flex items-center justify-center gap-2" onclick="openDetail('The End Revolution')">
+            <i class="fa-solid fa-circle-info"></i> Keunggulan
+          </button>
+        </div>
+      </article>
+          <article class="card glass rounded-2xl p-6">
+      <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+        <img src="https://files.catbox.moe/sybkzb.jpg" alt="Produk 1"
+     class="w-full object-cover aspect-square rounded-xl">
+
+      </div>
+      <h3 class="text-xl font-semibold mb-1">Meta Destroyer</h3>
+      <p class="text-slate-300 text-sm mb-4">Apk Bug WhatsApp Dengan Tampilan Kece, Harga Murah, Cara Pake Simple, Dan Yang Paling Utama Efek Bug Gacor.</p>
+      <div class="flex items-center justify-between mb-5">
+        <span class="text-lg font-bold tracking-wide">Rp 2̶5̶.̶0̶0̶0̶ = Rp 20.000</span>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary w-full ring-acc flex items-center justify-center gap-2" onclick="openPaymentOption('Produk Premium 1', 50000)">
+          <i class="fa-solid fa-cart-shopping"></i> Order
+        </button>
+        <button class="btn btn-secondary w-full flex items-center justify-center gap-2" onclick="openDetail('Meta Destroyer')">
+          <i class="fa-solid fa-circle-info"></i> Keunggulan
+        </button>
+      </div>
+    </article>
+        <article class="card glass rounded-2xl p-6">
+      <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+        <img src="https://files.catbox.moe/9xmzo6.png" alt="Produk 1"
+     class="w-full object-cover aspect-square rounded-xl">
+
+      </div>
+      <h3 class="text-xl font-semibold mb-1">The End Invictus</h3>
+      <p class="text-slate-300 text-sm mb-4">Apk Bug Siap Pakai, Dengan Efek Bug Brutalnya, Cara Pakai Tinggal Login Dan Langsung Bug, Tidak Memerlukan Sender</p>
+      <div class="flex items-center justify-between mb-5">
+        <span class="text-lg font-bold tracking-wide">Rp 5.000 • 1 Hari<br>
+    Rp 10.000 • 3 Hari<br>
+    Rp 20.000 • 1 Minggu<br>
+    Rp 35.000 • 1 Bulan<br>
+    Rp 90.000 • Permanen</span>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary w-full ring-acc flex items-center justify-center gap-2" onclick="openPaymentOption('The End', 100000)">
+          <i class="fa-solid fa-cart-shopping"></i> Order
+        </button>
+        <button class="btn btn-secondary w-full flex items-center justify-center gap-2" onclick="openDetail('The End Invictus')">
+          <i class="fa-solid fa-circle-info"></i> Keunggulan
+        </button>
+      </div>
+    </article>
+    <article class="card glass rounded-2xl p-6">
+      <div class="relative overflow-hidden rounded-xl mb-5 ring-1 ring-white/10">
+        <img src="https://files.catbox.moe/mvvdy5.jpg" alt="Panel"
+     class="w-full object-cover aspect-square rounded-xl">
+
+      </div>
+      <h3 class="text-xl font-semibold mb-1">Panel Private Server</h3>
+      <p class="text-slate-300 text-sm mb-4">Panel Anti Delay Dan Lag, Yang Pastinya Bergaransi</p>
+      <div class="flex items-center justify-between mb-5">
+        <span class="text-lg font-bold tracking-wide">
+     Ram 1GB • Rp 1.000<br>
+     Ram 2GB • Rp 2.000<br>
+     Ram 3GB • Rp 3.000<br>
+     Ram 4GB • Rp 4.000<br />
+     Ram 5GB • Rp 5.000<br />
+     Ram 6GB • Rp 6.000<br />
+     Ram 7GB • Rp 7.000<br />
+     Ram 8GB • Rp 8.000<br />
+     Ram 9GB • Rp 9.000<br />
+     Ram Unli • Rp 10.000</span>
+      </div>
+      <div class="flex gap-2">
+        <button class="btn btn-primary w-full ring-acc flex items-center justify-center gap-2" onclick="openPaymentOption('Produk Premium 3', 75000)">
+          <i class="fa-solid fa-cart-shopping"></i> Order
+        </button>
+        <button class="btn btn-secondary w-full flex items-center justify-center gap-2" onclick="openDetail('Panel')">
+          <i class="fa-solid fa-circle-info"></i> Keunggulan
+        </button>
+      </div>
+    </article>
+    </main>
+
+    <!-- Deskripsi bawah -->
+    <div class="glass p-8 rounded-2xl shadow-lg max-w-4xl mb-12">
+      <h2 class="text-2xl font-bold mb-6 text-center"><i class="fa-solid fa-star text-yellow-400"></i> Deskripsi</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-bolt text-blue-400 text-xl"></i>
+          <p><span class="font-semibold">Proses</span> - Pesanan Diproses Secepatnya.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-shield-halved text-green-400 text-xl"></i>
+          <p><span class="font-semibold">Terpercaya</span> - Sistem Kita Terjamin Aman, Terpercaya Dan Berjalan Sesuai Ekspetasi.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-tags text-pink-400 text-xl"></i>
+          <p><span class="font-semibold">Harga</span> - Produk VIP Dengan Harga Murmer.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <i class="fa-solid fa-headset text-purple-400 text-xl"></i>
+          <p><span class="font-semibold">Bantuan</span> - Tersedia Kapan Pun Dibutuhkan.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Kontak -->
+    <div class="max-w-6xl mx-auto px-6 pb-16 flex justify-center gap-4">
+      <a href="https://wa.me/6289524134626" target="_blank" 
+         class="btn glass flex items-center gap-2 hover:bg-white/10">
+        <i class="fa-brands fa-whatsapp text-emerald-400"></i> WhatsApp
+      </a>
+      <a href="https://t.me/ZalStexcu" target="_blank" 
+         class="btn glass flex items-center gap-2 hover:bg-white/10">
+        <i class="fa-brands fa-telegram text-sky-400"></i> Telegram
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal: Pilih Payment -->
+  <div id="paymentOptionModal" class="modal">
+    <div class="modal-panel glass rounded-2xl p-6 w-[92%] max-w-xl">
+      <h3 class="title text-2xl mb-1">Metode Pembayaran</h3>
+      <p class="text-slate-300 mb-4" id="payProductName">Produk</p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- QRIS -->
+        <button class="glass rounded-xl p-4 hover:bg-white/10 text-center" onclick="openPayment('qris')">
+          <div class="mx-auto mb-2 h-10 w-10 rounded-lg bg-gradient-to-br from-sky-400 to-cyan-300 flex items-center justify-center ring-1 ring-white/20">
+            <svg viewBox="0 0 24 24" class="w-6 h-6 text-slate-900"><path fill="currentColor" d="M3 3h8v8H3V3m2 2v4h4V5H5m6 6h8v8h-8v-8m2 2v4h4v-4h-4M3 13h2v8H3v-8m6 0h2v2H9v-2m10-10h2v8h-2V3M3 11h2V9H3v2m16 10h2v-2h-2v2"/></svg>
+          </div>
+          <div class="font-semibold">QRIS</div>
+        </button>
+        <!-- Dana -->
+        <button class="glass rounded-xl p-4 hover:bg-white/10 text-center" onclick="openPayment('dana')">
+          <div class="mx-auto mb-2 h-10 w-10 rounded-lg bg-gradient-to-br from-blue-500 to-sky-400 flex items-center justify-center ring-1 ring-white/20">
+            <svg viewBox="0 0 100 24" class="w-8 h-5"><rect rx="3" ry="3" width="22" height="14" x="2" y="5" fill="white" opacity=".95"/><text x="30" y="17" font-size="12" fill="white" font-family="Poppins, Arial" font-weight="700">DANA</text></svg>
+          </div>
+          <div class="font-semibold">Dana</div>
+        </button>
+        <!-- GoPay -->
+        <button class="glass rounded-xl p-4 hover:bg-white/10 text-center" onclick="openPayment('gopay')">
+          <div class="mx-auto mb-2 h-10 w-10 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-400 flex items-center justify-center ring-1 ring-white/20">
+            <svg viewBox="0 0 24 24" class="w-6 h-6"><path fill="white" d="M3 7a3 3 0 0 1 3-3h11a2 2 0 0 1 2 2v1h1a1 1 0 0 1 1 1v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7zm14-1H6a1 1 0 0 0-1 1v1h12V6zm2 3H5v8a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V9z"/></svg>
+          </div>
+          <div class="font-semibold">GoPay</div>
+        </button>
+      </div>
+      <div class="mt-6 flex justify-end">
+        <button class="btn btn-danger" onclick="closePaymentOption()"><i class="fa-solid fa-xmark"></i> Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Detail Pembayaran -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-panel glass rounded-2xl p-6 w-[92%] max-w-md text-center">
+      <h3 id="paymentTitle" class="title text-2xl mb-3">Pembayaran</h3>
+      <div id="paymentContent" class="mb-4"></div>
+      <button class="btn btn-danger" onclick="closePayment()"><i class="fa-solid fa-xmark"></i> Tutup</button>
+    </div>
+  </div>
+
+  <!-- Modal: Detail Produk -->
+  <div id="detailModal" class="modal">
+    <div class="modal-panel glass rounded-2xl p-6 w-[92%] max-w-md">
+      <h3 id="detailTitle" class="title text-2xl mb-4">Keunggulan</h3>
+      <ul class="list-disc list-inside space-y-2 text-left text-slate-200"></ul>
+      <div class="mt-6 flex justify-end">
+        <button class="btn btn-danger" onclick="closeDetail()">
+          <i class="fa-solid fa-xmark"></i> Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"><i class="fa-solid fa-circle-check text-emerald-400"></i> <span id="toastMsg"></span></div>
+
+<script>
+  // Switch welcome -> produk
+  document.getElementById("cekProdukBtn").addEventListener("click", ()=>{
+    document.getElementById("welcome").style.display="none";
+    document.getElementById("produkPage").style.display="block";
+    document.getElementById("bgMusic").play();
+  });
+
+  // Produk Data
+  let currentProduct = { name: '', price: 0 };
+  const productDetails = {
+      "V14": [
+      "Crash Ui",
+      "Blank Android",
+      "Crash Android",
+      "Forclose Click",
+      "Crash iOS",
+      "Forclose iPhone",
+      "Delay Hard Invisible",
+      "Sedot Kouta",
+      "Delay 1 Pesan",
+      "Blank Group",
+      "Delay Group",
+      "Freeze Group"
+          ],
+    "The End Revolution": [
+      "Forclose Invisible",
+      "Forclose Permanen",
+      "Delay Maker",
+      "Crash iOS",
+      "Bug Group",
+      "No Sender",
+      "Bisa Spam Bug"
+    ],
+        "Meta Destroyer": [
+      "Forclose 1 Pesan",
+      "Forclose App",
+      "Crash iPhone",
+      "Crash Android",
+      "Crash Infinity",
+      "Efek Forclose Permanen",
+      "Delay Maker Hard",
+      "Mudah Dipakai, Tinggal klik",
+      "Full Tutor Pengajaran",
+      "Bug Melalui Apk",
+      "Sender Tanggung Sendiri!"
+    ],
+        "The End Invictus": [
+      "Forclose Invisible",
+      "Forclose Permanen",
+      "Delay Maker",
+      "Delay Hard Invisible",
+      "Forclose Crash",
+      "Forclose Infinity",
+      "Forclose Andro",
+      "Crash Andro",
+      "Bug Group",
+      "Blank Group",
+      "Delay Group",
+      "Forclose iOS",
+      "Crash iOS",
+      "No Sender",
+      "Bug Melalui Apk",
+      "Tinggal Bug Bug Aja",
+      "Bisa Spam Bug",
+      "No Jeda"
+    ],
+        "Panel": [
+      "Vps Spek Ram8 C4",
+      "Garansi 15H 1×Replace",
+      "Panel Anti Lag Dan Delay",
+      "Server Ngebut",
+      "Node 15 Sampai 23",
+      "Anti Curi Script",
+      "Anti Intip",
+      "Inget, Ada Harga Ada Kualitas!"
+          ],
+              "Website": [
+      "Mendapatkan Semua Project Website Bug",
+      "Tidak Perlu Bayar Lagi Saat Update",
+      "Free Update Website Permanen"
+          ],
+  };
+
+  // Functions
+  function openPaymentOption(name, price){
+    currentProduct = { name, price };
+    document.getElementById('payProductName').innerText = ``;
+    show('paymentOptionModal');
+  }
+  function closePaymentOption(){ hide('paymentOptionModal'); }
+
+  function openPayment(method){
+    hide('paymentOptionModal');
+    const titleEl = document.getElementById('paymentTitle');
+    const contentEl = document.getElementById('paymentContent');
+
+    if(method === 'qris'){
+      titleEl.innerText = 'Pembayaran QRIS';
+      const qrisUrl = `https://files.catbox.moe/snwjnd.jpeg`;
+      contentEl.innerHTML = `
+        <p class="text-slate-300 mb-3">Scan Atau Download QRIS Ini</p>
+        <img src="${qrisUrl}" alt="QRIS" class="mx-auto rounded-xl ring-1 ring-white/20 mb-3">
+        <button class="btn btn-primary flex items-center gap-2 mx-auto" onclick="downloadQRIS('${qrisUrl}')">
+          <i class="fa-solid fa-download"></i> Download QRIS
+        </button>
+      `;
+    } else if(method === 'dana'){
+      titleEl.innerText = 'Pembayaran Dana';
+      const number = '0895-2413-4626';
+      contentEl.innerHTML = `
+        <p class="text-slate-300 mb-3">A/N P** HAR****</p>
+ <div id="danaNumber" class="text-lg font-semibold bg-gradient-to-r from-sky-600/50 to-sky-500/40 px-4 py-3 rounded-xl ring-1 ring-white/10 select-text">${number}</div>
+        <button class="btn btn-primary flex items-center gap-2 mx-auto mt-4" onclick="copyDana()">
+          <i class="fa-solid fa-copy"></i> Salin Nomor
+        </button>
+      `;
+    } else if(method === 'gopay'){
+      titleEl.innerText = 'Pembayaran GoPay';
+      const number = 'Belum Ada Bang🗿';
+      contentEl.innerHTML = `
+        <p class="text-slate-300 mb-3">Belum Daftar GoPay Bang😭</p>
+        <div id="gopayNumber" class="text-lg font-semibold bg-gradient-to-r from-emerald-600/50 to-emerald-500/40 px-4 py-3 rounded-xl ring-1 ring-white/10 select-text">${number}</div>
+        <button class="btn btn-primary flex items-center gap-2 mx-auto mt-4" onclick="copyGoPay()">
+          <i class="fa-solid fa-copy"></i> Salin Nomor
+        </button>
+      `;
+    }
+    show('paymentModal');
+  }
+  function closePayment(){ hide('paymentModal'); }
+
+  function openDetail(name){
+    document.getElementById('detailTitle').innerText = `Keunggulan`;
+    const ul = document.querySelector('#detailModal ul');
+    ul.innerHTML = "";
+    (productDetails[name] || ["Belum Gw Isi Tod Mager"]).forEach(d=>{
+      const li = document.createElement("li");
+      li.innerText = d;
+      ul.appendChild(li);
+    });
+    show('detailModal');
+  }
+  function closeDetail(){ hide('detailModal'); }
+
+  // Helper
+  function show(id){ document.getElementById(id).classList.add("show"); }
+  function hide(id){ document.getElementById(id).classList.remove("show"); }
+  function formatIDR(num){ return "Rp " + num.toLocaleString("id-ID"); }
+
+  // Copy Functions
+  function copyDana(){
+    const num = document.getElementById("danaNumber").innerText;
+    navigator.clipboard.writeText(num);
+    showToast("Nomor Dana Disalin!");
+  }
+  function copyGoPay(){
+    const num = document.getElementById("gopayNumber").innerText;
+    navigator.clipboard.writeText(num);
+    showToast("Nomor GoPay Disalin!");
+  }
+  function downloadQRIS(url){
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "qris.png";
+    a.click();
+    showToast("QRIS Berhasil Didownload!");
+  }
+
+  // Toast
+  function showToast(msg){
+    const t = document.getElementById("toast");
+    document.getElementById("toastMsg").innerText = msg;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"),3000);
+  }
+</script>
+</body>
+</html>
